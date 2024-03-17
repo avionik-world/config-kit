@@ -57,4 +57,5 @@ class TestConfigLoader : ConfigLoader<TestConfig>(
 ```
 
 ## How to use the ConfigLoader
-You can get the config using the `testConfigLoader.load()` method. 
+Once you have successfully created a ConfigLoader, various methods are available to you. These include `configLoader.load()`, which is used to retrieve the configuration. 
+If you want to save a configuration, you can use the `configLoader.save(config)` method.
