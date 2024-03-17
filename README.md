@@ -1,5 +1,5 @@
 # ConfigKit
-In this project, you can register Bukkit listeners and add one or more requirements. A "requirement" is a condition that must be fulfilled for this event to be executed.
+With this project you can easily create a config file.
 
 ## Using ConfigKit in your plugin
 
@@ -47,11 +47,11 @@ class TestConfig(
 ```
 **Note:** If you want to save as a Yaml file, you have to write via the class `@Serialisable` to avoid errors.
 
-#### And this is how you can create the config loader
+#### And this is how you can create the ConfigLoader
 ```kotlin
 class TestConfigLoader : ConfigLoader<TestConfig>(
     File("config.json"), // Here you can set where the file should be saved
-    JsonFileFormatter(TestConfig::class.java), // Here you have to adapt your format. There are JsonFileFormatter andYamlFileFormatter
+    JsonFileFormatter(TestConfig::class.java), // Here you have to adapt your format. There are JsonFileFormatter and YamlFileFormatter
     { TestConfig("123", listOf("abc", "def")) }
 )
 ```
@@ -59,3 +59,26 @@ class TestConfigLoader : ConfigLoader<TestConfig>(
 ## How to use the ConfigLoader
 Once you have successfully created a ConfigLoader, various methods are available to you. These include `configLoader.load()`, which is used to retrieve the configuration. 
 If you want to save a configuration, you can use the `configLoader.save(config)` method.
+
+## How to create the MultipleConfigLoader
+Everything remains the same as with the ConfigLoader, but with one exception. The class needs the nameable implantation so that the files can be selected.
+```kotlin
+class KitConfig(
+    val name: String,
+    val secondList: List<String>
+) : Nameable {
+    override fun getName(): String = this.name
+}
+```
+**Note:** If you want to save as a Yaml file, you have to write via the class `@Serialisable` to avoid errors.
+
+#### And this is how you can create the MultipleConfigLoader
+```kotlin
+class TestConfigLoader : MultipleConfigLoader<KitConfig>(
+    File("config/kits"), // All files are saved in this directory
+    JsonFileFormatter(KitConfig::class.java) // Here you have to adapt your format. There are JsonFileFormatter and YamlFileFormatter
+)
+```
+
+## How to use the MultipleConfigLoader
+With `configLoader.loadAll()` you can get all configs from this directory.
