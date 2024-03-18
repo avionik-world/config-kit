@@ -18,7 +18,6 @@ repositories {
 
 dependencies {
     compileOnly(kotlin("stdlib"))
-    runtimeOnly(kotlin("stdlib"))
 
     api("com.charleskorn.kaml:kaml:0.56.0") {
         exclude("org.jetbrains.kotlin")
