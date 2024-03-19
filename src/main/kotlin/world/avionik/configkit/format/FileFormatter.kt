@@ -32,6 +32,8 @@ interface FileFormatter<V : Any> {
      * @param file The file to get
      */
     fun createDirectory(file: File) {
+        if (!file.path.contains("/"))
+            return
         val path = file.path.substringBeforeLast("/")
         val directory = File(path)
         if (directory.exists())
