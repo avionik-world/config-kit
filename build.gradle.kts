@@ -46,7 +46,7 @@ centralPortal {
     pom {
         name.set("Config Kit")
         description.set("Create easy Config Files with json or yaml")
-        url.set("https://maven.pkg.github.com/avionik-world/config-kit")
+        url.set("https://github.com/avionik-world/config-kit")
 
         developers {
             developer {
