@@ -5,15 +5,6 @@ With this project you can easily create a config file.
 
 ### Maven
 ```xml
-<repositories>
-  <repository>
-     <id>github</id>
-     <url>https://maven.pkg.github.com/avionik-world/config-kit</url>
-   </repository>
-</repositories>
-```
-
-```xml
 <dependencies>
  <dependency>
     <groupId>world.avionik</groupId>
@@ -25,12 +16,6 @@ With this project you can easily create a config file.
 ```
 
 ### Gradle
-```groovy
-repositories {
-    maven { url = 'https://maven.pkg.github.com/avionik-world/config-kit' }
-}
-```
-
 ```groovy
 dependencies {
     compileOnly 'world.avionik:config-kit:1.0.1'
